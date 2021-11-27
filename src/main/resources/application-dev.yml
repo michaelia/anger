@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    drivername: com.mysql.cj.jdbc.Driver
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/Springboot?characterEncoding=utf-8&serverTimezone=GMT+8&useSSL=false&serverTimezone=UTC
+    username: root
+    sqlName: Springboot
+
+#生成xml的包名位置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+
