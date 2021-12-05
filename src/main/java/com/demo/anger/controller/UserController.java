@@ -1,7 +1,7 @@
 package com.demo.anger.controller;
 
 import com.demo.anger.domain.User;
-import com.demo.anger.exception.config.BaseException;
+import com.demo.anger.exception.config.UserException;
 import com.demo.anger.exception.httpCode.UserEorrCode;
 import com.demo.anger.service.imp.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +18,10 @@ public class UserController {
     private UserServiceImp userServiceImp;
 
     @GetMapping("/user")
-    public User selectByPrimaryKey(Integer id) throws BaseException {
+    public User selectByPrimaryKey(Integer id) throws UserException {
         User user = userServiceImp.selectByPrimaryKey(id);
         if(user.getId() == 0){
-            throw  new BaseException(UserEorrCode.USER_NOT_Live);
+            throw  new UserException(UserEorrCode.USER_NOT_Live);
         }
         return user;
     }

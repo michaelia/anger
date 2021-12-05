@@ -35,6 +35,6 @@ public enum UserEorrCode implements BaseCode{
 
     @Override
     public String getMsg() {
-        return msg;
+        return  msg;
     }
 }

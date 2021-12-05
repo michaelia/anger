@@ -27,6 +27,13 @@ public class BeanResponse  {
     */
     private Object result;
 
+    public BeanResponse(String code, String msg) {
+    }
+
+    public BeanResponse() {
+
+    }
+
     public String getCode() {
         return code;
     }
