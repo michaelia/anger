@@ -1,6 +1,8 @@
 package com.demo.anger.exception.config;
 
-import com.demo.anger.exception.httpType.ResultCode;
+import com.demo.anger.exception.httpCode.BaseCode;
+import com.demo.anger.exception.httpCode.ResultCode;
+import com.demo.anger.exception.httpCode.UserEorrCode;
 
 /**
  * @Author 周敏怡
@@ -9,11 +11,33 @@ import com.demo.anger.exception.httpType.ResultCode;
  * @Date 2021/11/26 8:32 PM
  **/
 public class BaseException extends Exception {
+    /**
+     * 错误码
+     */
+    protected String errorCode;
+    /**
+     * 错误信息
+     */
+    protected String errorMsg;
 
-    private ResultCode resultCode;
-
-    public BaseException(ResultCode commonCode){
-        this.resultCode = commonCode;
+    public BaseException(BaseCode commonCode){
+        this.errorCode = commonCode.getCode();
+        this.errorMsg = commonCode.getMsg();
     }
 
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
 }

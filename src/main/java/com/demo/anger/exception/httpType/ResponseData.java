@@ -1,5 +1,8 @@
 package com.demo.anger.exception.httpType;
 
+import com.demo.anger.exception.httpCode.BaseCode;
+import com.demo.anger.exception.httpCode.ResultCode;
+import com.demo.anger.exception.httpCode.UserEorrCode;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -16,16 +19,15 @@ public class ResponseData {
         BeanResponse beanResponse = new BeanResponse();
         beanResponse.setCode(ResultCode.SUCCESS.getCode());
         beanResponse.setMessage(ResultCode.SUCCESS.getMsg());
-
         beanResponse.setResult(data);
-        log.debug(beanResponse.getMessage());
         return beanResponse;
     }
 
-    public  static BeanResponse fail(ResultCode resultCode){
-        BeanResponse beanResponse = new BeanResponse();
-        beanResponse.setCode(resultCode.getCode());
-        beanResponse.setMessage(resultCode.getMsg());
+    public  static BeanResponse fail(String code,String msg){
+        BeanResponse beanResponse = new BeanResponse(code,msg);
+        beanResponse.setCode(code);
+        beanResponse.setMessage(msg);
+        System.out.println(beanResponse.toString());
         return beanResponse;
     }
 }

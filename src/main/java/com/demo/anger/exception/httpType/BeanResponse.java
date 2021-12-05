@@ -1,12 +1,15 @@
 package com.demo.anger.exception.httpType;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * @description: 自定义返回值
  * @author: minyi
  * @date: 2021/4/19 21:47
  * @version: v1.0
  */
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BeanResponse  {
 
     /**
@@ -27,6 +30,7 @@ public class BeanResponse  {
     public String getCode() {
         return code;
     }
+
 
     public void setCode(String code) {
         this.code = code;

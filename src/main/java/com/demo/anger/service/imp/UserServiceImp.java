@@ -2,6 +2,8 @@ package com.demo.anger.service.imp;
 
 import com.demo.anger.data.UserMapper;
 import com.demo.anger.domain.User;
+import com.demo.anger.exception.config.BaseException;
+import com.demo.anger.exception.httpCode.UserEorrCode;
 import com.demo.anger.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
@@ -17,9 +19,9 @@ public class UserServiceImp implements UserService {
     @Autowired
     UserMapper userMapper;
     final Logger logger = LoggerFactory.getLogger(getClass());
-    public User selectByPrimaryKey(Integer id) {
+    public User selectByPrimaryKey(Integer id) throws BaseException {
         if(userMapper.selectByPrimaryKey(id) == null){
-            throw Base
+            throw new BaseException(UserEorrCode.USER_NOT_Live);
         }
         return userMapper.selectByPrimaryKey(id);
     }
