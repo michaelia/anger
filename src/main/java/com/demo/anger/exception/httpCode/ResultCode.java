@@ -1,15 +1,10 @@
 package com.demo.anger.exception.httpCode;
 
-/**
- * @Author 周敏怡
- * @Description //TODO 用户失败错误吗
- * @version: v1.8.0
- * @Date 2021/11/29 7:10 PM
- **/
-public enum UserEorrCode implements BaseCode{
-    // 用户信息不存在
-    USER_NOT_Live("1001", "用户信息不存在！");
-
+public enum ResultCode implements BaseCode{
+    // 数据操作错误定义
+    SUCCESS("200", "成功!"),
+    SERVER_BUSY("500","服务器正忙，请稍后再试!"),
+    UnknownError("501","未知错误");
 
     /**
      * 错误码
@@ -21,12 +16,10 @@ public enum UserEorrCode implements BaseCode{
      */
     private final String msg;
 
-    UserEorrCode(String code, String msg) {
+    ResultCode(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
-
-
 
     @Override
     public String getCode() {
@@ -35,6 +28,7 @@ public enum UserEorrCode implements BaseCode{
 
     @Override
     public String getMsg() {
-        return  msg;
+        return msg;
     }
+
 }
