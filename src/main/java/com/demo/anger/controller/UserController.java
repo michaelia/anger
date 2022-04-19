@@ -7,6 +7,7 @@ import com.demo.anger.service.imp.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,8 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/insert")
-    public int insertUser(Integer id,String name,Integer age){
-
+    public int insertUser(@RequestParam(value = "id" ,required = true) Integer id, @RequestParam("name") String name, @RequestParam("age") Integer age){
         return userServiceImp.insertUser(id,name,age);
     }
 

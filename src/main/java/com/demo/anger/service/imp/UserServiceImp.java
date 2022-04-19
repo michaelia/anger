@@ -27,7 +27,7 @@ public class UserServiceImp implements UserService {
     }
 
 
-    public int insertUser(@Param("id") Integer id, @Param("name") String name, @Param("age") Integer age) {
+    public int insertUser(@Param("id")  Integer id,@Param("name") String name,@Param("age") Integer age) {
         logger.info("插入{}的id成功",id);
         return userMapper.insertUser(id,name,age);
     }

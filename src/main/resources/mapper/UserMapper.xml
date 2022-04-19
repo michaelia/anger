@@ -15,7 +15,7 @@
     <insert id="insertUser">
         insert into  user (id, name, age
         )
-        values (#{arg0}, #{arg1}, #{arg2}
+        values (#{id}, #{name}, #{age}
         )
     </insert>
 

@@ -10,6 +10,7 @@ import com.demo.anger.exception.httpCode.UserEorrCode;
  * @version: v1.8.0
  * @Date 2021/11/26 8:32 PM
  **/
+
 public class UserException extends Exception {
     /**
      * 错误码

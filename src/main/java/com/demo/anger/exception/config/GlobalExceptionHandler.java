@@ -21,7 +21,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public  BeanResponse failT(){
+    public  BeanResponse failRuntimeException(){
         return ResponseData.fail(ResultCode.SERVER_BUSY.getCode(),ResultCode.SERVER_BUSY.getMsg());
     }
+
 }

@@ -6,6 +6,7 @@ import com.demo.anger.exception.httpType.BeanResponse;
 import com.demo.anger.exception.httpType.ResponseData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * @Author 周敏怡
  * @Description //TODO
@@ -28,6 +32,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  **/
 @RestControllerAdvice
 public class GlobalResponse implements ResponseBodyAdvice<Object> {
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -43,6 +48,10 @@ public class GlobalResponse implements ResponseBodyAdvice<Object> {
     @SneakyThrows
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+
+        if(body instanceof LinkedHashMap){
+            return ResponseData.fail(ResultCode.SERVER_NOT_FOUNT.getCode(),ResultCode.SERVER_NOT_FOUNT.getMsg());
+        }
         if(body instanceof BeanResponse){
             return body;
         }

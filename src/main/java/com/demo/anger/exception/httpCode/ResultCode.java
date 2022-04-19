@@ -4,7 +4,9 @@ public enum ResultCode implements BaseCode{
     // 数据操作错误定义
     SUCCESS("200", "成功!"),
     SERVER_BUSY("500","服务器正忙，请稍后再试!"),
-    UnknownError("501","未知错误");
+    UnknownError("501","未知错误"),
+    SERVER_NOT_FOUNT("400","访问类型或者访问地址有误")
+    ;
 
     /**
      * 错误码
